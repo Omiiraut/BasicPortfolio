@@ -152,22 +152,9 @@ Feel free to fork this project and customize it for your own portfolio. If you f
 ## 📞 Support
 
 For any questions or support, please contact:
-- **Email**: omraut.cs@gmail.com
+- **Email**: omraut404@gmail.com
 - **LinkedIn**: [Om Raut](https://www.linkedin.com/in/om-raut-103133314)
 
-## 🎯 Future Enhancements
-
-Potential features to add:
-- Dark mode toggle
-- Blog section
-- Resume download
-- Portfolio filters
-- Testimonials section
-- Multi-language support
-- Advanced animations
-- Backend integration for contact form
-
----
 
 **Built with ❤️ by Om Balaso Raut**
 
