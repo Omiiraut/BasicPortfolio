@@ -42,7 +42,7 @@ window.addEventListener('scroll', () => {
 });
 // Animated roles in navbar
 window.addEventListener('load', () => {
-    const roles = ["Student", "Coder", "Developer", "Creator", "Gamer", "Tester", "Designer","Entrepreneur"];
+    const roles = ["Student", "Coder", "Developer", "Creator", "Gamer"];
     let roleIndex = 0;
     const roleSpan = document.querySelector('.animated-roles');
 

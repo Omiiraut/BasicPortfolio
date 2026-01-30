@@ -107,24 +107,6 @@ Edit `script.js` to:
 - Update scroll effects
 - Add new interactive features
 
-## 🌐 Deployment
-
-### GitHub Pages
-1. Create a new repository on GitHub
-2. Upload all project files
-3. Go to Settings > Pages
-4. Select source branch (usually main)
-5. Your site will be available at `https://username.github.io/repository-name`
-
-### Netlify
-1. Drag and drop the project folder to Netlify
-2. Your site will be deployed automatically
-3. Get a custom domain or use the provided Netlify URL
-
-### Vercel
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically deploy your site
-3. Get a custom domain or use the provided Vercel URL
 
 ## 📊 Performance
 
