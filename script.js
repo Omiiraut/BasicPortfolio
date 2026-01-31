@@ -5,12 +5,14 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    document.body.classList.toggle('menu-open', navMenu.classList.contains('active'));
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+    document.body.classList.remove('menu-open');
 }));
 
 // Smooth scrolling for navigation links
@@ -27,18 +29,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar background change on scroll (dark theme)
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-        
+    if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 100);
     }
-    
 });
 // Animated roles in navbar
 window.addEventListener('load', () => {
@@ -164,15 +160,16 @@ function showNotification(message, type = 'info') {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#2ecc71' : type === 'error' ? '#e74c3c' : '#3498db'};
+        background: ${type === 'success' ? 'linear-gradient(135deg, #00f5d4, #00c9a7)' : type === 'error' ? 'linear-gradient(135deg, #f72585, #e63946)' : 'linear-gradient(135deg, #4361ee, #7b2cbf)'};
         color: white;
         padding: 1rem 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 245, 212, 0.2);
         z-index: 10000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         max-width: 400px;
+        border: 1px solid rgba(255,255,255,0.1);
     `;
     
     // Add to page
@@ -253,7 +250,7 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Add CSS for loading state
+// Add CSS for loading state (dark theme)
 const loadingStyles = document.createElement('style');
 loadingStyles.textContent = `
     body:not(.loaded) {
@@ -267,11 +264,8 @@ loadingStyles.textContent = `
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #1a1a24 100%);
         z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     
     body:not(.loaded)::after {
@@ -280,7 +274,9 @@ loadingStyles.textContent = `
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: white;
+        background: linear-gradient(135deg, #00f5d4, #f72585);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-size: 1.5rem;
         font-weight: 600;
         z-index: 10001;
