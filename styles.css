@@ -46,6 +46,7 @@
   --radius-full: 9999px;
   --shadow-glow: 0 0 40px rgba(0, 245, 212, 0.15);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --perspective: 1000px;
 }
 
 /* Reset */
@@ -126,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--gradient-main);
   border-radius: var(--radius-full);
 }
+
 
 /* ═══ NAVIGATION ═══ */
 .navbar {
@@ -386,6 +388,11 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 30px rgba(0, 245, 212, 0.4);
 }
 
+.btn-primary:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 245, 212, 0.3);
+}
+
 .btn-secondary {
   background: var(--glass);
   color: var(--text-primary);
@@ -396,6 +403,10 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
   transform: translateY(-3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-small {
@@ -418,6 +429,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   animation: fadeInRight 1s ease 0.5s both;
+  perspective: var(--perspective);
 }
 
 .profile-card {
@@ -429,7 +441,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: var(--transition);
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .profile-card::before {
@@ -486,6 +500,81 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-cyan);
 }
 
+/* Floating 3D shapes */
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 8px;
+  opacity: 0.12;
+}
+
+.shape-cube {
+  width: 60px;
+  height: 60px;
+  top: 15%;
+  right: 10%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  transform: rotateX(45deg) rotateZ(45deg);
+  animation: floatCube 20s ease-in-out infinite;
+}
+
+.shape-sphere {
+  width: 80px;
+  height: 80px;
+  bottom: 25%;
+  left: 5%;
+  background: radial-gradient(circle at 30% 30%, var(--accent-pink), var(--accent-purple));
+  border-radius: 50%;
+  animation: floatSphere 18s ease-in-out infinite;
+}
+
+.shape-cylinder {
+  width: 50px;
+  height: 80px;
+  top: 60%;
+  right: 25%;
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
+  border-radius: 50% 50% 0 0;
+  animation: floatCylinder 22s ease-in-out infinite;
+}
+
+@keyframes floatCube {
+  0%, 100% {
+    transform: translateY(0) rotateX(45deg) rotateZ(45deg);
+  }
+  33% {
+    transform: translateY(-25px) translateX(15px) rotateX(50deg) rotateZ(90deg);
+  }
+  66% {
+    transform: translateY(-15px) translateX(-15px) rotateX(40deg) rotateZ(135deg);
+  }
+}
+
+@keyframes floatSphere {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+}
+
+@keyframes floatCylinder {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(-10px) rotate(15deg);
+  }
+}
+
 /* ═══ ABOUT SECTION ═══ */
 .about {
   padding: 120px 0;
@@ -518,6 +607,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
+  perspective: var(--perspective);
 }
 
 .stat {
@@ -526,13 +616,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  transition: var(--transition);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
 }
 
 .stat:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) rotateX(5deg);
   border-color: rgba(0, 245, 212, 0.3);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), var(--shadow-glow);
 }
 
 .stat h4 {
@@ -556,11 +647,14 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   border: 1px solid var(--glass-border);
   border-left: 4px solid var(--accent-cyan);
-  transition: var(--transition);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: var(--perspective);
 }
 
 .education-card:hover {
   border-color: rgba(0, 245, 212, 0.3);
+  transform: perspective(var(--perspective)) rotateY(-3deg) translateZ(10px);
 }
 
 .education-card h3 {
@@ -648,6 +742,8 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-secondary);
   border-radius: var(--radius-full);
   overflow: hidden;
+  transform: perspective(200px) rotateX(-2deg);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .skill-progress {
@@ -655,6 +751,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--gradient-main);
   border-radius: var(--radius-full);
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
 }
 
 /* ═══ PROJECTS SECTION ═══ */
@@ -668,6 +765,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  perspective: var(--perspective);
 }
 
 .project-card {
@@ -675,7 +773,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--glass-border);
-  transition: var(--transition);
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
@@ -1128,6 +1228,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
   }
 
+  .education-card:hover {
+    transform: none;
+  }
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1145,6 +1249,21 @@ h1, h2, h3, h4, h5, h6 {
   .section-title {
     margin-bottom: 2rem;
     font-size: 2rem;
+  }
+
+  /* Reduce 3D on mobile for performance */
+  .profile-card,
+  .project-card {
+    will-change: auto;
+  }
+
+  .stat:hover {
+    transform: translateY(-5px);
+  }
+
+  .shape {
+    opacity: 0.06;
+    animation-duration: 30s;
   }
 }
 
@@ -1327,6 +1446,13 @@ h1, h2, h3, h4, h5, h6 {
 
   .scroll-indicator {
     bottom: 16px;
+  }
+}
+
+/* Hide floating shapes on very small screens */
+@media (max-width: 480px) {
+  .floating-shapes .shape {
+    display: none;
   }
 }
 

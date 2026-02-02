@@ -387,3 +387,54 @@ rippleStyles.textContent = `
     }
 `;
 document.head.appendChild(rippleStyles);
+
+// ═══ 3D TILT EFFECT (Mouse-follow) ═══
+function init3DTilt() {
+    const tiltElements = document.querySelectorAll('[data-tilt]');
+    const maxTilt = 15;
+    const tiltIntensity = 1;
+
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', handleTilt);
+        el.addEventListener('mouseleave', resetTilt);
+        el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out');
+    });
+
+    function handleTilt(e) {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -maxTilt * tiltIntensity;
+        const rotateY = ((x - centerX) / centerX) * maxTilt * tiltIntensity;
+        const lift = e.currentTarget.classList.contains('project-card') ? -10 : -5;
+        
+        e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(${lift}px)`;
+        e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 245, 212, 0.15)';
+    }
+
+    function resetTilt(e) {
+        e.currentTarget.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease';
+        e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        e.currentTarget.style.boxShadow = '';
+    }
+}
+
+// Run 3D tilt on load (skip on touch devices for better UX)
+if (!('ontouchstart' in window)) {
+    init3DTilt();
+}
+
+// Touch device: add subtle 3D flip on tap for project cards
+if ('ontouchstart' in window) {
+    document.querySelectorAll('.project-card[data-tilt]').forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'perspective(1000px) rotateX(5deg) scale(1.02)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 300);
+        });
+    });
+}
