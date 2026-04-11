@@ -101,7 +101,10 @@ document.querySelectorAll('.project-card').forEach(card => {
     projectObserver.observe(card);
 });
 
-// Contact form handling
+// Initialize EmailJS
+emailjs.init('p8FPzKTB7DgBZmYEw'); // Public key
+
+// Contact form handling with EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -125,9 +128,30 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-        this.reset();
+        // Disable button to prevent multiple submissions
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        // Send email using EmailJS
+        emailjs.send('service_u35pplg', 'template_pxgj8ql', {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'omraut404@gmail.com'
+        }).then(function(response) {
+            showNotification('Message sent successfully! Thank you for reaching out.', 'success');
+            contactForm.reset();
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+        }, function(error) {
+            showNotification('Failed to send message. Please try again or contact me directly.', 'error');
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+            console.error('EmailJS error:', error);
+        });
     });
 }
 
