@@ -3,397 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om Balaso Raut - Computer Science Student</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Om Balaso Raut | Portfolio</title>
+    <meta name="description" content="Portfolio of Om Balaso Raut, a Computer Science student building modern web experiences and practical software projects.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="page-glow page-glow-one"></div>
+    <div class="page-glow page-glow-two"></div>
+    <div class="cursor-aura"></div>
+    <div class="background-logo" aria-hidden="true">
+        <svg viewBox="0 0 700 700" class="background-logo-svg" role="presentation">
+            <defs>
+                <linearGradient id="logoStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7aa2ff"></stop>
+                    <stop offset="50%" stop-color="#61e7c1"></stop>
+                    <stop offset="100%" stop-color="#ff8b6a"></stop>
+                </linearGradient>
+                <radialGradient id="logoGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.75)"></stop>
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)"></stop>
+                </radialGradient>
+                <filter id="logoBlur">
+                    <feGaussianBlur stdDeviation="18"></feGaussianBlur>
+                </filter>
+            </defs>
+
+            <circle class="logo-halo" cx="350" cy="350" r="230"></circle>
+            <circle class="logo-ring logo-ring-outer" cx="350" cy="350" r="220"></circle>
+            <circle class="logo-ring logo-ring-inner" cx="350" cy="350" r="178"></circle>
+
+            <path
+                class="logo-letter logo-letter-o"
+                d="M250 220
+                   C182 220 138 273 138 350
+                   C138 427 182 480 250 480
+                   C318 480 362 427 362 350
+                   C362 273 318 220 250 220
+                   Z
+                   M250 279
+                   C281 279 301 307 301 350
+                   C301 393 281 421 250 421
+                   C219 421 199 393 199 350
+                   C199 307 219 279 250 279
+                   Z">
+            </path>
+
+            <path
+                class="logo-letter logo-letter-r"
+                d="M360 220
+                   L360 480
+                   L425 480
+                   L425 390
+                   L453 390
+                   L512 480
+                   L588 480
+                   L514 374
+                   C560 353 580 316 580 274
+                   C580 206 533 170 457 170
+                   L360 170
+                   L360 220
+                   Z
+                   M425 228
+                   L452 228
+                   C492 228 518 244 518 280
+                   C518 318 492 335 452 335
+                   L425 335
+                   L425 228
+                   Z">
+            </path>
+        </svg>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Om Raut</a>
+            <a href="#home" class="nav-brand">Om Raut</a>
+
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                <span>Open to internships & freelance work</span>
             </div>
-            <div class="nav-center-animated">
-                <h2>I Am </h2><h1><span class="animated-roles"></span></h1>
-            </div>
+
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+
+            <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">Available for collabs</div>
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Om Balaso Raut</span>
-                </h1>
-                <h2 class="hero-subtitle">Computer Science Student & Aspiring Developer</h2>
-                <p class="hero-description">
-                    Passionate about technology, problem-solving, and creating innovative solutions. 
-                    Currently pursuing my Bachelor's Degree in Computer Science from Baramati, Pune.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch <i class="fas fa-paper-plane"></i></a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="profile-info">
-                        <h3>Om Raut</h3>
-                        <p>CS Student</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <a href="#about">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-copy">
+                    <div class="eyebrow">Computer Science Student | Pune, Maharashtra</div>
+                    <h1 class="hero-title">I build <span class="gradient-text">modern, clean, and useful</span> digital experiences.</h1>
+                    <p class="hero-description">
+                        I'm Om Balaso Raut, a developer focused on practical web apps, problem solving, and turning ideas into polished products that feel fast, clear, and professional.
+                    </p>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who I Am</h3>
-                    <p>
-                        I'm a 21-year-old Computer Science student from Baramati, Pune, with a deep passion for technology and innovation. 
-                        My journey in computer science began with curiosity about how software works and has evolved into a desire to create 
-                        meaningful solutions that can make a difference in people's lives.
-                    </p>
-                    <p>
-                        As a student, I'm constantly learning and exploring new technologies, programming languages, and development methodologies. 
-                        I believe in the power of continuous learning and staying updated with the latest trends in the tech industry.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h4>21</h4>
-                            <p>Years Old</p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">Explore Projects <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-secondary">Send a Message <i class="fas fa-paper-plane"></i></a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <article class="metric-card" data-tilt>
+                            <strong>10+</strong>
+                            <span>Projects built</span>
+                        </article>
+                        <article class="metric-card" data-tilt>
+                            <strong>3+</strong>
+                            <span>Years learning & building</span>
+                        </article>
+                        <article class="metric-card" data-tilt>
+                            <strong><span class="animated-roles"></span></strong>
+                            <span>Always improving</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero-panel" data-tilt>
+                    <div class="profile-orbit orbit-one"></div>
+                    <div class="profile-orbit orbit-two"></div>
+
+                    <div class="hero-card">
+                        <div class="hero-card-top">
+                            <div>
+                                <p class="mini-label">Now building</p>
+                                <h2>Portfolio, apps, and stronger UI experiences</h2>
+                            </div>
+                            <span class="badge">2026</span>
                         </div>
-                        <div class="stat">
-                            <h4>3+</h4>
-                            <p>Years of Learning</p>
+
+                        <div class="hero-identity">
+                            <div class="avatar-ring">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div>
+                                <h3>Om Balaso Raut</h3>
+                                <p>Aspiring full-stack developer with a strong interest in Java, JavaScript, Python, and modern frontend design.</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <h4>10+</h4>
-                            <p>Projects Completed</p>
+
+                        <div class="hero-stack">
+                            <span>Java</span>
+                            <span>Python</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MySQL</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="education-card">
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">About Me</p>
+                    <h2 class="section-title">A learner with a builder mindset.</h2>
+                    <p class="section-intro">
+                        I'm a 21-year-old Computer Science student from Baramati, Pune. I enjoy creating projects that are visually polished, user friendly, and grounded in real functionality.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <article class="glass-card story-card" data-tilt>
+                        <h3>What drives me</h3>
+                        <p>
+                            My interest in software started with curiosity and has grown into a serious focus on web development, programming, and continuous improvement. I like learning by building, refining, and shipping.
+                        </p>
+                        <p>
+                            I'm especially motivated by projects that combine logic with design, where clean code and a strong interface both matter.
+                        </p>
+                    </article>
+
+                    <article class="glass-card timeline-card" data-tilt>
                         <h3>Education</h3>
-                        <div class="education-item">
+                        <div class="timeline-item">
+                            <span class="timeline-year">2023 - Present</span>
                             <h4>Bachelor of Computer Science</h4>
                             <p>Baramati, Pune</p>
-                            <span class="year">2023 - Present</span>
                         </div>
-                    </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">Focus Areas</span>
+                            <h4>Web development, programming, problem solving</h4>
+                            <p>Learning through projects and hands-on practice.</p>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Java</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Python</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>C++</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>JavaScript</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>HTML/CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>React.js</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Node.js</span>
-                                <span>60%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 60%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <h3>Tools & Others</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Git/GitHub</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>VS Code</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>MySQL</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
+                <div class="highlight-grid">
+                    <article class="highlight-card" data-tilt>
                         <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Website</h3>
-                        <p>A full-stack e-commerce platform built with React.js and Node.js. Features include user authentication, product catalog, shopping cart, and payment integration.</p>
-                        <div class="project-tech">
+                        <h3>Frontend Craft</h3>
+                        <p>Clean layouts, smoother motion, and responsive UI that feels modern on desktop and mobile.</p>
+                    </article>
+                    <article class="highlight-card" data-tilt>
+                        <i class="fas fa-brain"></i>
+                        <h3>Problem Solving</h3>
+                        <p>Breaking big ideas into smaller steps and building features with practical thinking.</p>
+                    </article>
+                    <article class="highlight-card" data-tilt>
+                        <i class="fas fa-rocket"></i>
+                        <h3>Growth Focus</h3>
+                        <p>Always learning new tools, improving fundamentals, and pushing each project further.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Skills</p>
+                    <h2 class="section-title">Technologies I use to bring ideas to life.</h2>
+                </div>
+
+                <div class="skills-layout">
+                    <article class="skills-panel glass-card" data-tilt>
+                        <h3>Core Stack</h3>
+                        <div class="skill-item">
+                            <div class="skill-head"><span>HTML / CSS</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head"><span>Java</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head"><span>Python</span><span>80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head"><span>JavaScript</span><span>78%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
+                        </div>
+                    </article>
+
+                    <article class="skills-panel glass-card" data-tilt>
+                        <h3>Tools & Frameworks</h3>
+                        <div class="chip-cloud">
                             <span>React.js</span>
                             <span>Node.js</span>
-                            <span>MongoDB</span>
+                            <span>Git & GitHub</span>
+                            <span>VS Code</span>
+                            <span>MySQL</span>
+                            <span>C++</span>
+                            <span>Responsive Design</span>
+                            <span>REST Basics</span>
+                            <span>UI Animation</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
+                    </article>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Task Management App</h3>
-                        <p>A responsive task management application with drag-and-drop functionality, user authentication, and real-time updates.</p>
-                        <div class="project-tech">
-                            <span>JavaScript</span>
-                            <span>HTML/CSS</span>
-                            <span>LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Projects</p>
+                    <h2 class="section-title">Selected work that reflects my learning and creativity.</h2>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Calculator Application</h3>
-                        <p>A feature-rich calculator with scientific functions, history tracking, and a modern user interface built with vanilla JavaScript.</p>
-                        <div class="project-tech">
-                            <span>JavaScript</span>
-                            <span>HTML/CSS</span>
-                            <span>CSS Grid</span>
+
+                <div class="projects-grid">
+                    <article class="project-card" data-tilt>
+                        <div class="project-visual gradient-a">
+                            <i class="fas fa-store"></i>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                        <div class="project-body">
+                            <div class="project-meta">Full Stack Concept</div>
+                            <h3>E-Commerce Website</h3>
+                            <p>A shopping platform concept with product browsing, cart flow, authentication, and a structure ready for real backend integration.</p>
+                            <div class="project-tech">
+                                <span>React.js</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small btn-primary">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary btn-ghost">GitHub</a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="project-card" data-tilt>
+                        <div class="project-visual gradient-b">
+                            <i class="fas fa-list-check"></i>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">Productivity App</div>
+                            <h3>Task Management App</h3>
+                            <p>A responsive task manager with intuitive layout, interactive task handling, and a workflow focused on simplicity and clarity.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>HTML/CSS</span>
+                                <span>LocalStorage</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small btn-primary">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-tilt>
+                        <div class="project-visual gradient-c">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">UI + Logic</div>
+                            <h3>Calculator Application</h3>
+                            <p>A calculator with a clean interface, reliable interactions, and a structure that balances design detail with functional precision.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>CSS Grid</span>
+                                <span>Vanilla UI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small btn-primary">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-tilt>
+                        <div class="project-visual gradient-d">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">Interactive Project</div>
+                            <h3>Snake Game</h3>
+                            <p>A classic game rebuilt with smooth movement, score tracking, and gameplay logic that keeps the experience fun and lightweight.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>Canvas</span>
+                                <span>Game Logic</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small btn-primary">Live Demo</a>
+                                <a href="#" class="btn btn-small btn-secondary btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="contact-shell">
+                    <div class="contact-copy">
+                        <p class="section-kicker">Contact</p>
+                        <h2 class="section-title left">Let's build something strong together.</h2>
+                        <p class="section-intro left">
+                            Use the form and I'll receive your message on <strong>omraut404@gmail.com</strong>. If the form ever fails, you can also email me directly.
+                        </p>
+
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>omraut404@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-location-dot"></i>
+                                <div>
+                                    <h3>Location</h3>
+                                    <p>Baramati, Pune, Maharashtra</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <div>
+                                    <h3>Status</h3>
+                                    <p>Computer Science student, open to projects and learning opportunities.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/om-raut-103133314" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Omiiraut" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/its_omii_x_07/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:omraut404@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Snake Game</h3>
-                        <p>A classic Snake game implementation with score tracking, increasing difficulty, and smooth animations using HTML5 Canvas.</p>
-                        <div class="project-tech">
-                            <span>JavaScript</span>
-                            <span>HTML5 Canvas</span>
-                            <span>CSS3</span>
+
+                    <div class="contact-form-wrap glass-card" data-tilt>
+                        <div class="form-heading">
+                            <h3>Send me a message</h3>
+                            <p>This form is connected to EmailJS and is set up to send messages to your email inbox.</p>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
+
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Your Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What do you want to discuss?" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-label">Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+
+                            <p class="form-note">Direct fallback: <a href="mailto:omraut404@gmail.com">omraut404@gmail.com</a></p>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect!</h3>
-                    <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and innovation.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>omraut404@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Baramati, Pune, Maharashtra</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <h4>Education</h4>
-                                <p>Bachelor of Computer Science</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/om-raut-103133314" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/Omiiraut" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/its_omii_x_07/#" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Om Balaso Raut. All rights reserved.</p>
-                <p>Designed with ❤️ by Om Raut</p>
-            </div>
+        <div class="container footer-inner">
+            <p>&copy; 2026 Om Balaso Raut. All rights reserved.</p>
+            <p>Designed and developed by Om Raut.</p>
         </div>
     </footer>
 
